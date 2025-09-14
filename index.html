@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESP32 Dashboard</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-microchip"></i>
+        <span class="sidebar-title">ENVIROSENSE</span> 
+      </div>
+      <nav>
+        <a href="index.html" class="active"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a href="clients.html"><i class="fas fa-users"></i><span>Connected Clients</span></a>
+        <a href="temperature.html"><i class="fas fa-thermometer-half"></i><span>Temperature</span></a>
+        <a href="humidity.html"><i class="fas fa-tint"></i><span>Humidity</span></a>
+        <a href="motion.html"><i class="fas fa-running"></i><span>Motion</span></a>
+      </nav>
+    </aside>
+
+    <!-- Only visible on mobile (hidden on desktop via CSS) -->
+<div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+
+     
+<!-- Cards Section (4 side-by-side) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            <!-- Temperature Card -->
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-thermometer-half" style="color: #e63946;"></i>
+              </div>
+              <div class="card-title">Temperature</div>
+              <div id="temp-value" class="card-value">-- °C</div>
+            </div>
+
+            <!-- Humidity Card -->
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-tint" style="color: #0077b6;"></i>
+              </div>
+              <div class="card-title">Humidity</div>
+              <div id="hum-value" class="card-value">-- %</div>
+            </div>
+
+            <!-- Motion Card -->
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-running" style="color: #2a9d8f;"></i>
+              </div>
+              <div class="card-title">Motion</div>
+              <div id="motion-status" class="card-value">--</div>
+            </div>
+
+            <!-- LED Control Card -->
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-lightbulb" style="color: #facc15;"></i>
+              </div>
+              <div class="card-title">LED Control</div>
+              <div class="flex items-center gap-4 mt-4">
+                <button id="led-toggle" class="led-button bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded shadow">
+                  Turn ON
+                </button>
+                <span id="led-status" class="text-sm font-semibold px-3 py-1 rounded-full bg-gray-400 text-white shadow select-none">
+                  OFF
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card chart-card">
+            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="card-title">Temperature Trend</div>
+            <canvas id="tempChart" class="chart-canvas"></canvas>
+          </div>
+          <div class="card chart-card">
+            <div class="card-icon"><i class="fas fa-chart-area"></i></div>
+            <div class="card-title">Humidity Trend</div>
+            <canvas id="humChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Local Chart.js -->
+  <script src="chart.min.js"></script>
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Your CSS -->
+  <link href="style.css" rel="stylesheet" />
+
+  <!-- Your JS -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-microchip"></i>
+        <span class="sidebar-title">ENVIROSENSE</span>
+      </div>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a href="clients.html"><i class="fas fa-users"></i><span>Clients</span></a>
+        <a href="temperature.html"><i class="fas fa-thermometer-half"></i><span>Temperature</span></a>
+        <a href="humidity.html"><i class="fas fa-tint"></i><span>Humidity</span></a>
+        <a href="motion.html" class="active"><i class="fas fa-running"></i><span>Motion</span></a>
+      </nav>
+    </aside>
+
+    <!-- Only visible on mobile (hidden on desktop via CSS) -->
+<div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+    <!-- Main Content -->
+    <main class="p-6 overflow-y-auto">
+      <h2 class="mb-6">Motion Detection</h2>
+
+      <!-- Motion Status -->
+      <div class="card mb-6">
+        <div class="card-header">
+          <i class="card-icon fas fa-running"></i>
+          <h3 class="card-title">Current Motion</h3>
+        </div>
+        <div id="motion-status" class="card-value">--</div>
+      </div>
+
+      <!-- Motion Logs -->
+      <div class="card" style="margin-top:40px;">
+        <div class="card-header" style="justify-content: space-between; width: 100%;">
+          <div style="display:flex; align-items:center;">
+            <i class="card-icon fas fa-list"></i>
+            <h3 class="card-title">Motion Logs</h3>
+          </div>
+          <button id="clear-logs">Clear Logs</button>
+        </div>
+        <ul id="motion-logs">
+          <!-- Logs will be added dynamically -->
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

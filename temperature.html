@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="style.css" rel="stylesheet" />
+  <script src="chart.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-microchip"></i>
+        <span class="sidebar-title">ENVIROSENSE</span>
+      </div>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a href="clients.html"><i class="fas fa-users"></i><span>Connected Clients</span></a>
+        <a href="temperature.html" class="active"><i class="fas fa-thermometer-half"></i><span>Temperature</span></a>
+        <a href="humidity.html"><i class="fas fa-tint"></i><span>Humidity</span></a>
+        <a href="motion.html"><i class="fas fa-running"></i><span>Motion</span></a>
+      </nav>
+    </aside>
+
+<!-- Only visible on mobile (hidden on desktop via CSS) -->
+<div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <h2 class="page-title">Temperature Monitoring</h2>
+
+      <!-- Temperature Stats Row -->
+      <div class="card-row" style="margin-top:40px;">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-thermometer-half card-icon" style="color: rgb(252, 173, 4);"></i>
+            <span class="card-title">Current Temperature</span>
+          </div>
+          <div id="temp-value" class="card-value">-- °C</div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-arrow-down card-icon" style="color: #00bcd4;"></i>
+            <span class="card-title">Min Temperature</span>
+          </div>
+          <div id="min-temp" class="card-value">-- °C</div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-arrow-up card-icon" style="color: #f44336;"></i>
+            <span class="card-title">Max Temperature</span>
+          </div>
+          <div id="max-temp" class="card-value">-- °C</div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-chart-bar card-icon" style="color: #4caf50;"></i>
+            <span class="card-title">Average Temperature</span>
+          </div>
+          <div id="avg-temp" class="card-value">-- °C</div>
+        </div>
+      </div>
+
+      <!-- Temperature Chart -->
+      <div class="card chart-card" style="margin-top:40px;">
+        <div class="card-header">
+          <i class="fas fa-chart-line card-icon"></i>
+          <span class="card-title">Temperature Trend</span>
+        </div>
+        <canvas id="tempChart" height="200"></canvas>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

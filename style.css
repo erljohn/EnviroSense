@@ -1,0 +1,407 @@
+@font-face {
+    font-family: 'Quantify';
+    src: url('Quantify.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Aerospace';
+    src: url('Aerospace.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'QurovaBold';
+    src: url('QurovaDEMO-Bold.otf') format('opentype');
+}
+
+
+
+
+/* ======================= */
+/* RESET & BASE STYLES     */
+/* ======================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #7f3aa2, #0f082b, #0c0516, #5416b5);
+  background-size: 400% 400%;
+  animation: gradientBG 30s ease infinite;
+  color: #fff;
+  min-height: 100vh;
+}
+
+@keyframes gradientBG {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ======================= */
+/* FLEX & LAYOUT           */
+/* ======================= */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1; }
+.h-screen { height: 100vh; }
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+.overflow-y-auto { overflow-y: auto; }
+
+/* ======================= */
+/* SPACING UTILITIES       */
+/* ======================= */
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+
+
+header, h1, h2 {
+    font-family: 'Aerospace', sans-serif;
+}
+
+
+.led-button {
+  background-color: #facc15;
+  color: #000;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
+}
+.led-button:hover {
+  background-color: #fbbf24;
+}
+
+#led-status {
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-weight: 600;
+  background-color: #ccc;
+  color: white;
+  pointer-events: none;
+}
+
+
+
+/* ======================= */
+/* SIDEBAR MODERN GRADIENT */
+/* ======================= */
+.sidebar {
+  background: linear-gradient(180deg, #111827, #1f2937, #0f172a);
+  color: #fff;
+  width: 4.7rem;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  flex-shrink: 0;
+}
+.sidebar:hover { width: 16rem; }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  margin: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  font-family: 'Quantify', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d1d5db;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.sidebar-header i {
+  font-size: 1.25rem;
+  min-width: 1.5rem;
+  text-align: center;
+}
+.sidebar-header:hover { background: #374151; color: #fff; }
+
+.sidebar nav { flex: 1; padding: 1rem 0; }
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0.8rem;
+  border-radius: 0.5rem;
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar a i {
+  font-size: 1.25rem;
+  min-width: 1.5rem;
+  text-align: center;
+}
+.sidebar a:hover { background: #374151; color: #fff; }
+.sidebar a.active { background: #6d28d9; color: #fff; }
+
+/* ======================= */
+/* GRID SYSTEM             */
+/* ======================= */
+.grid { display: grid; gap: 1.5rem; }
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (min-width: 640px) { .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 768px) { .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); } }
+
+/* ======================= */
+/* MAIN CONTENT AREA       */
+/* ======================= */
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem;
+  transition: margin 0.3s ease;
+}
+
+/* ======================= */
+/* CARD DESIGN (Modern)    */
+/* ======================= */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.card-title {
+  font-family: 'QurovaBold', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Card Header with Icon + Title */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  font-size: 1.5rem;   /* smaller size */
+  margin-right: 8px;   /* spacing */
+  color: #fdfeff;      /* modern blue */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+
+/* ======================= */
+/* CHARTS                  */
+/* ======================= */
+.chart-card {
+  align-items: stretch;
+}
+.chart-canvas {
+  width: 100% !important;
+  height: auto !important;   /* Let Chart.js control height */
+  max-height: 320px;         /* Optional cap so it doesn’t get too tall */
+  margin-top: 1rem;
+}
+
+
+/* Make chart labels, ticks & tooltips white */
+.chartjs-render-monitor,
+.chartjs-size-monitor {
+  color: #fff !important;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* For responsiveness on smaller screens */
+}
+.card-row .card {
+  flex: 1;
+  min-width: 220px; /* Prevents shrinking too much */
+}
+
+
+
+
+/* ======================= */
+/* MOTION PAGE CUSTOM      */
+/* ======================= */
+
+/* Motion Status */
+#motion-status {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f87171; /* Default red */
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Logs container */
+#motion-logs {
+  max-height: 16rem;
+  overflow-y: auto;
+  padding: 0;
+  width: 100%;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+/* Hide scrollbar */
+#motion-logs::-webkit-scrollbar { display: none; }
+#motion-logs { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Log items */
+#motion-logs li {
+  list-style: none;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+#motion-logs li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Clear Logs Button */
+#clear-logs {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+#clear-logs:hover {
+  background: linear-gradient(90deg, #f87171, #ef4444);
+  transform: scale(1.05);
+}
+
+/* Motion Log States */
+#motion-logs li.motion-detected {
+  background: rgba(239, 68, 68, 0.3); /* Red tone */
+  color: #000000;
+}
+
+#motion-logs li.no-motion {
+  background: rgba(34, 197, 94, 0.25); /* Green tone */
+  color: #000000;
+}
+
+#motion-logs li {
+  transition: background 0.3s ease;
+}
+
+/* ======================= */
+/* RESPONSIVE DESIGN FIXES */
+/* ======================= */
+
+/* 1. Sidebar becomes hidden and toggleable on mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 16rem; /* full expanded size */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Hide sidebar hover effect on mobile */
+  .sidebar:hover {
+    width: 16rem;
+  }
+
+  /* Add spacing for main content when sidebar is open */
+  main {
+    padding: 1rem;
+  }
+
+  /* Add hamburger menu */
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+}
+
+/* 2. Make dashboard cards stack vertically on smaller screens */
+@media (max-width: 640px) {
+  .grid-cols-4,
+  .sm\:grid-cols-2,
+  .lg\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .card {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* 3. Make charts fully responsive and stack vertically */
+@media (max-width: 768px) {
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chart-canvas {
+    max-height: 250px; /* Reduce height for smaller screens */
+  }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+}
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="style.css" rel="stylesheet" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-microchip"></i>
+        <span class="sidebar-title">ENVIROSENSE</span>
+      </div>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a href="clients.html" class="active"><i class="fas fa-users"></i><span>Connected Clients</span></a>
+        <a href="temperature.html"><i class="fas fa-thermometer-half"></i><span>Temperature</span></a>
+        <a href="humidity.html"><i class="fas fa-tint"></i><span>Humidity</span></a>
+        <a href="motion.html"><i class="fas fa-running"></i><span>Motion</span></a>
+      </nav>
+    </aside>
+
+    <!-- Only visible on mobile (hidden on desktop via CSS) -->
+<div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <h2 class="text-2xl font-bold mb-6">Clients Monitoring</h2>
+
+      <!-- Client Count Card -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="card-title">Connected Clients</div>
+        <div id="clients-count" class="card-value">0</div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
