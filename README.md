@@ -38,6 +38,3 @@ To build the EnviroSense, you will need the following components:
 3.  **Power On:** Plug the device into a 5V power source using the USB-C cable.
 
 
-This project was developed by students. For questions or feedback, please contact us at:
-* **Email:** [Your Project Email Address]
-* **Project Repository:** [Link to your project page or GitHub]
